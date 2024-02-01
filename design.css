@@ -1,0 +1,175 @@
+@charset "UTF-8";
+/* Color palette: https://flatuicolors.com/palette/de */
+@font-face {
+  font-family: "Alata";
+  src: url(./fnt/Alata-Regular.ttf);
+}
+@font-face {
+  font-family: "Big Shoulders";
+  src: url(./fnt/BigShouldersInlineText-VariableFont_wght.ttf);
+}
+html,
+body {
+  margin: 0;
+  display: block;
+  width: 100%;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Alata", sans-serif;
+  font-size: 105%;
+  color: #111;
+  box-sizing: border-box;
+}
+
+a {
+  color: #20bf6b;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+header {
+  text-align: center;
+  margin: 3em 0;
+}
+
+header h1 {
+  font-size: 550%;
+  font-weight: 700;
+  font-family: "Big Shoulders", Helvetica, sans-serif;
+  margin: 0;
+}
+
+header h1 .gradient {
+  background-image: linear-gradient(60deg, #f7b731, 50%, #0fb9b1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  margin: 0;
+}
+
+header .description {
+  font-size: 110%;
+  font-weight: 400;
+}
+
+header .wherewhen {
+  font-size: 110%;
+  font-weight: 600;
+}
+
+header .when,
+header .where {
+  padding: 0px 2px;
+}
+
+h2::before {
+  content: "› ";
+}
+
+h2 {
+  margin-top: 0.5em;
+}
+
+header,
+main,
+footer {
+  padding: 0 8em;
+}
+
+#banner {
+  background-image: url("img/snowscat-H3oXiq7_bII-unsplash.jpg");
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  padding: 12em 0;
+  width: 100%;
+  box-shadow: 0pt 0pt 5pt #111;
+  border-radius: 0.4em;
+  margin: 4em 0;
+}
+
+section {
+  margin: 3em 0;
+}
+
+footer {
+  display: block;
+  font-size: 85%;
+  text-align: center;
+  margin: 4.5em 0 3em 0;
+}
+
+button {
+  margin: 1em 1em 0 1em;
+  padding: 0.8em 1.3em;
+  align-items: center;
+  display: inline-flex;
+  appearance: none;
+  background-color: #20bf6b;
+  border-radius: 0.4em;
+  border-width: 0;
+  font-size: 120%;
+  color: #fff;
+  font-family: monospace;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.5s, transform 0.5s;
+  box-shadow: 0 4px 1px color-mix(in srgb, #20bf6b, #000);
+}
+
+button:hover {
+  box-shadow: 0 2px 1px color-mix(in srgb, #20bf6b, #000);
+  transform: translateY(2px);
+}
+
+button:active {
+  box-shadow: 0 3px 1px color-mix(in srgb, #20bf6b, #000) inset;
+  transition: box-shadow 0.15s, transform 0.15s;
+  transform: translateY(5px);
+}
+
+@media screen and (max-width: 1024px) {
+  #banner {
+    border-radius: 0;
+  }
+}
+@media screen and (max-width: 896px) {
+  html,
+  body {
+    font-size: 100%;
+  }
+  header,
+  main,
+  footer {
+    padding: 0 4em;
+  }
+}
+@media screen and (max-width: 512px) {
+  #banner {
+    padding: 9em 0;
+    margin: 2.5em 0;
+  }
+  header,
+  main,
+  footer {
+    padding: 0 2.5em;
+  }
+  header {
+    margin: 2em 0;
+  }
+  footer {
+    margin: 3em 0 2em 0;
+  }
+  section {
+    margin: 1.5em 0;
+  }
+}
