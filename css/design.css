@@ -1,0 +1,264 @@
+@charset "UTF-8";
+/* Color palette: https://flatuicolors.com/palette/de */
+@font-face {
+  font-family: "Alata";
+  src: url("../fnt/Alata-Regular.ttf");
+}
+@font-face {
+  font-family: "Big Shoulders";
+  src: url("../fnt/BigShouldersInlineText-VariableFont_wght.ttf");
+}
+html,
+body {
+  margin: 0;
+  display: block;
+  width: 100%;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Alata", sans-serif;
+  font-size: 105%;
+  color: #111;
+  box-sizing: border-box;
+}
+
+a {
+  color: #20bf6b;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+header {
+  text-align: center;
+  margin: 3em 0;
+}
+
+header h1 {
+  font-size: 550%;
+  font-weight: 800;
+  font-family: "Big Shoulders", Helvetica, sans-serif;
+  margin: 0;
+}
+
+header h1 .gradient {
+  background-image: linear-gradient(60deg, #0fb9b1, 50%, #f7b731);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  margin: 0;
+}
+
+header .description {
+  font-size: 110%;
+  font-weight: 400;
+}
+
+header .wherewhen {
+  font-size: 110%;
+  font-weight: 600;
+}
+
+header .when,
+header .where {
+  padding: 0px 2px;
+}
+
+#navbanner {
+  border-radius: 0.5em;
+  overflow: hidden;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  box-shadow: 0pt 2pt 8pt rgba(51, 51, 51, 0.5333333333);
+  position: sticky;
+  top: -24em;
+}
+
+#navbanner.nobanner {
+  top: 0;
+}
+
+#banner {
+  background-image: url("../img/snowscat-H3oXiq7_bII-unsplash.jpg");
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 12em 0;
+  width: 100%;
+  box-shadow: 8pt 0 8pt #111;
+}
+
+nav {
+  text-align: center;
+  background-color: #222;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: #f1f3f6;
+}
+
+nav button.hamburger {
+  display: none;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 0 2em;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a {
+  color: inherit;
+}
+
+h2::before {
+  content: "› ";
+}
+
+h2 {
+  margin-top: 0.5em;
+}
+
+header,
+nav,
+main,
+footer {
+  padding-left: 6em;
+  padding-right: 6em;
+}
+
+section {
+  margin: 3em 0;
+}
+
+footer {
+  display: block;
+  font-size: 85%;
+  text-align: center;
+  margin: 4.5em 0 3em 0;
+}
+
+button:not(.hamburger) {
+  margin: 1em 1em 0 1em;
+  padding: 0.8em 1.3em;
+  align-items: center;
+  display: inline-flex;
+  appearance: none;
+  background-color: #20bf6b;
+  border-radius: 0.5em;
+  border-width: 0;
+  font-size: 120%;
+  color: #fff;
+  font-family: monospace;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.5s, transform 0.5s;
+  box-shadow: 0 4px 1px color-mix(in srgb, #20bf6b, #000);
+}
+
+button:not(.hamburger):hover {
+  box-shadow: 0 2px 1px color-mix(in srgb, #20bf6b, #000);
+  transform: translateY(2px);
+}
+
+button:not(.hamburger):active {
+  box-shadow: 0 3px 1px color-mix(in srgb, #20bf6b, #000) inset;
+  transition: box-shadow 0.15s, transform 0.15s;
+  transform: translateY(5px);
+}
+
+@media screen and (max-width: 1024px) {
+  #navbanner {
+    border-radius: 0;
+  }
+  #navbanner.nobanner {
+    position: fixed;
+    top: -4em;
+    left: 0;
+    width: 100%;
+  }
+  header:has(~ #navbanner.nobanner) {
+    margin-top: 7em;
+    margin-bottom: 4em;
+  }
+  nav button.hamburger {
+    display: block;
+    transform: scale(0.6);
+    padding: 0;
+    margin-left: auto;
+  }
+  nav #menu-container ul {
+    display: block;
+  }
+  nav #menu-container ul li {
+    height: 0;
+    overflow: hidden;
+    font-size: 120%;
+    font-weight: 400;
+    text-align: left;
+    transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
+  }
+  nav #menu-container.is-active li {
+    height: 1.5em;
+    transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
+  }
+  nav #menu-container.is-active ul {
+    margin-bottom: 1em;
+  }
+}
+@media screen and (max-width: 896px) {
+  html,
+  body {
+    font-size: 100%;
+  }
+  header,
+  nav,
+  main,
+  footer {
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+@media screen and (max-width: 512px) {
+  #banner {
+    padding: 9em 0;
+  }
+  #navbanner {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+  }
+  header,
+  nav,
+  main,
+  footer {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+  }
+  header {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  footer {
+    margin-top: 3em;
+    margin-bottom: 2em;
+  }
+  section {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+}
+
+/*# sourceMappingURL=design.css.map */

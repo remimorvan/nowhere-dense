@@ -7,23 +7,27 @@ $turquoise: #0fb9b1;
 $lightblue: #2d98da;
 $blue: #3867d6;
 $purple: #8854d0;
+$verylightgrey: #f1f3f6;
+$lightgrey: #d1d8e0;
 $grey: #a5b1c2;
 $darkgrey: #4b6584;
+$verydarkgrey: #2a4858;
 
+$gradient-left: $turquoise;
+$gradient-right: $yellow;
 $maincolor: $green;
-$gradient-left: $yellow;
-$gradient-right: $turquoise;
+$colornavbar: #222;
 $maincolor-darken: color-mix(in srgb, $maincolor, #000);
 
 
 @font-face {
 	font-family: "Alata";
-	src: url(./fnt/Alata-Regular.ttf);
+	src: url("../fnt/Alata-Regular.ttf");
 }
 
 @font-face {
 	font-family: "Big Shoulders";
-	src: url(./fnt/BigShouldersInlineText-VariableFont_wght.ttf);
+	src: url("../fnt/BigShouldersInlineText-VariableFont_wght.ttf");
 }
 
 html,
@@ -58,7 +62,7 @@ header {
 
 header h1 {
 	font-size: 550%;
-	font-weight: 700;
+	font-weight: 800;
 	font-family: "Big Shoulders", Helvetica, sans-serif;
 	margin: 0;
 	// filter: drop-shadow(0 0 .1px $darkgrey);
@@ -90,6 +94,63 @@ header .where {
 	padding: 0px 2px;
 }
 
+#navbanner {
+	border-radius: .5em;
+	overflow: hidden;
+	margin-top: 4em;
+	margin-bottom: 4em;
+	box-shadow: 0pt 2pt 8pt #3338;
+	position: sticky;
+	top: -24em;
+}
+
+#navbanner.nobanner {
+	top: 0;
+}
+
+#banner {
+	background-image: url("../img/snowscat-H3oXiq7_bII-unsplash.jpg");
+	position: relative;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 12em 0;
+	width: 100%;
+	box-shadow: 8pt 0 8pt #111;
+}
+
+nav {
+	text-align: center;
+	background-color: $colornavbar;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color: $verylightgrey;
+	// border-top: solid .15em #111;
+}
+
+nav button.hamburger {
+	display: none;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 0 2em;
+}
+
+nav ul li {
+	text-align: center;
+}
+
+nav ul li a {
+	color: inherit;
+}
+
 h2::before {
 	content: "› ";
 }
@@ -99,23 +160,11 @@ h2 {
 }
 
 header,
+nav,
 main,
 footer {
-	padding: 0 8em;
-}
-
-#banner {
-	background-image: url("img/snowscat-H3oXiq7_bII-unsplash.jpg");
-	position: relative;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	z-index: 1;
-	padding: 12em 0;
-	width: 100%;
-	box-shadow: 0pt 0pt 5pt #111;
-	border-radius: .4em;
-	margin: 4em 0;
+	padding-left: 6em;
+	padding-right: 6em;
 }
 
 section {
@@ -130,7 +179,7 @@ footer {
 	margin: 4.5em 0 3em 0;
 }
 
-button {
+button:not(.hamburger) {
 	margin: 1em 1em 0 1em;
 	padding: .8em 1.3em;
 
@@ -139,7 +188,7 @@ button {
 
 	appearance: none;
 	background-color: $maincolor;
-	border-radius: .4em;
+	border-radius: .5em;
 	border-width: 0;
 
 	font-size: 120%;
@@ -152,20 +201,63 @@ button {
 	box-shadow: 0 4px 1px $maincolor-darken;
 }
 
-button:hover {
+button:not(.hamburger):hover {
 	box-shadow: 0 2px 1px $maincolor-darken;
 	transform: translateY(2px);
 }
 
-button:active {
+button:not(.hamburger):active {
 	box-shadow: 0 3px 1px $maincolor-darken inset;
 	transition: box-shadow .15s, transform .15s;
 	transform: translateY(5px);
 }
 
 @media screen and (max-width: 1024px) {
-	#banner {
+	#navbanner {
 		border-radius: 0;
+	}
+
+	#navbanner.nobanner {
+		position: fixed;
+		top: -4em;
+		left: 0;
+		width: 100%;
+	}
+
+	header:has(~ #navbanner.nobanner) {
+		margin-top: 7em;
+		margin-bottom: 4em;
+	}
+
+	nav button.hamburger {
+		display: block;
+		transform: scale(0.6);
+		padding: 0;
+		margin-left: auto;
+	}
+
+	nav #menu-container ul {
+		display: block;
+	}
+
+	nav #menu-container ul li {
+		height: 0;
+		overflow: hidden;
+
+		font-size: 120%;
+		font-weight: 400;
+		text-align: left;
+
+		transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
+	}
+
+	nav #menu-container.is-active li {
+		height: 1.5em;
+		transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
+	}
+
+	nav #menu-container.is-active ul {
+		margin-bottom: 1em;
 	}
 }
 
@@ -177,33 +269,44 @@ button:active {
 	}
 
 	header,
+	nav,
 	main,
 	footer {
-		padding: 0 4em;
+		padding-left: 4em;
+		padding-right: 4em;
 	}
 }
 
 @media screen and (max-width: 512px) {
 	#banner {
 		padding: 9em 0;
-		margin: 2.5em 0;
+	}
+
+	#navbanner {
+		margin-top: 2.5em;
+		margin-bottom: 2.5em;
 	}
 
 	header,
+	nav,
 	main,
 	footer {
-		padding: 0 2.5em;
+		padding-left: 2.5em;
+		padding-right: 2.5em;
 	}
 
 	header {
-		margin: 2em 0;
+		margin-top: 2em;
+		margin-bottom: 2em;
 	}
 
 	footer {
-		margin: 3em 0 2em 0;
+		margin-top: 3em;
+		margin-bottom: 2em;
 	}
 
 	section {
-		margin: 1.5em 0;
+		margin-top: 1.5em;
+		margin-bottom: 1.5em;
 	}
 }
