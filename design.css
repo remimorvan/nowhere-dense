@@ -1,13 +1,16 @@
 @charset "UTF-8";
+
 /* Color palette: https://flatuicolors.com/palette/de */
 @font-face {
   font-family: "Alata";
-  src: url("../fnt/Alata-Regular.ttf");
+  src: url("./fnt/Alata-Regular.ttf");
 }
+
 @font-face {
   font-family: "Big Shoulders";
-  src: url("../fnt/BigShouldersInlineText-VariableFont_wght.ttf");
+  src: url("./fnt/BigShouldersInlineText-VariableFont_wght.ttf");
 }
+
 html,
 body {
   margin: 0;
@@ -84,7 +87,7 @@ header .where {
 }
 
 #banner {
-  background-image: url("../img/snowscat-H3oXiq7_bII-unsplash.jpg");
+  background-image: url("./img/snowscat-H3oXiq7_bII-unsplash.jpg");
   position: relative;
   background-position: center center;
   background-repeat: no-repeat;
@@ -184,25 +187,30 @@ button:not(.hamburger):active {
   #navbanner {
     border-radius: 0;
   }
+
   #navbanner.nobanner {
     position: fixed;
     top: -4em;
     left: 0;
     width: 100%;
   }
+
   header:has(~ #navbanner.nobanner) {
     margin-top: 7em;
     margin-bottom: 4em;
   }
+
   nav button.hamburger {
     display: block;
     transform: scale(0.6);
     padding: 0;
     margin-left: auto;
   }
+
   nav #menu-container ul {
     display: block;
   }
+
   nav #menu-container ul li {
     height: 0;
     overflow: hidden;
@@ -211,19 +219,24 @@ button:not(.hamburger):active {
     text-align: left;
     transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
   }
+
   nav #menu-container.is-active li {
     height: 1.5em;
     transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
   }
+
   nav #menu-container.is-active ul {
     margin-bottom: 1em;
   }
 }
+
 @media screen and (max-width: 896px) {
+
   html,
   body {
     font-size: 100%;
   }
+
   header,
   nav,
   main,
@@ -232,14 +245,17 @@ button:not(.hamburger):active {
     padding-right: 4em;
   }
 }
+
 @media screen and (max-width: 512px) {
   #banner {
     padding: 9em 0;
   }
+
   #navbanner {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
   }
+
   header,
   nav,
   main,
@@ -247,14 +263,17 @@ button:not(.hamburger):active {
     padding-left: 2.5em;
     padding-right: 2.5em;
   }
+
   header {
     margin-top: 2em;
     margin-bottom: 2em;
   }
+
   footer {
     margin-top: 3em;
     margin-bottom: 2em;
   }
+
   section {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
