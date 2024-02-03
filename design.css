@@ -1,16 +1,13 @@
 @charset "UTF-8";
-
 /* Color palette: https://flatuicolors.com/palette/de */
 @font-face {
   font-family: "Alata";
   src: url("./fnt/Alata-Regular.ttf");
 }
-
 @font-face {
   font-family: "Big Shoulders";
   src: url("./fnt/BigShouldersInlineText-VariableFont_wght.ttf");
 }
-
 html,
 body {
   margin: 0;
@@ -105,7 +102,7 @@ nav {
   color: #f1f3f6;
 }
 
-nav button.hamburger {
+nav .hamburger {
   display: none;
 }
 
@@ -154,7 +151,7 @@ footer {
   margin: 4.5em 0 3em 0;
 }
 
-button:not(.hamburger) {
+button {
   margin: 1em 1em 0 1em;
   padding: 0.8em 1.3em;
   align-items: center;
@@ -172,12 +169,12 @@ button:not(.hamburger) {
   box-shadow: 0 4px 1px color-mix(in srgb, #20bf6b, #000);
 }
 
-button:not(.hamburger):hover {
+button:hover {
   box-shadow: 0 2px 1px color-mix(in srgb, #20bf6b, #000);
   transform: translateY(2px);
 }
 
-button:not(.hamburger):active {
+button:active {
   box-shadow: 0 3px 1px color-mix(in srgb, #20bf6b, #000) inset;
   transition: box-shadow 0.15s, transform 0.15s;
   transform: translateY(5px);
@@ -187,30 +184,49 @@ button:not(.hamburger):active {
   #navbanner {
     border-radius: 0;
   }
-
   #navbanner.nobanner {
     position: fixed;
     top: -4em;
     left: 0;
     width: 100%;
   }
-
   header:has(~ #navbanner.nobanner) {
     margin-top: 7em;
     margin-bottom: 4em;
   }
-
-  nav button.hamburger {
+  .hamburger-container {
     display: block;
-    transform: scale(0.6);
-    padding: 0;
+    height: 20px;
+    width: 1em;
     margin-left: auto;
+    cursor: pointer;
   }
-
+  .hamburger-button {
+    margin-top: 8px;
+  }
+  .hamburger-button,
+  .hamburger-button::before,
+  .hamburger-button::after {
+    display: block;
+    background-color: #fff;
+    padding: 0;
+    position: absolute;
+    height: 2px;
+    width: 1em;
+    transition: transform 400ms cubic-bezier(0.15, 1, 0.25, 1);
+    border-radius: 2px;
+  }
+  .hamburger-button::before {
+    content: "";
+    margin-top: -6px;
+  }
+  .hamburger-button::after {
+    content: "";
+    margin-top: 6px;
+  }
   nav #menu-container ul {
     display: block;
   }
-
   nav #menu-container ul li {
     height: 0;
     overflow: hidden;
@@ -219,24 +235,28 @@ button:not(.hamburger):active {
     text-align: left;
     transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
   }
-
-  nav #menu-container.is-active li {
+  nav input#menu:checked ~ #menu-container li {
     height: 1.5em;
     transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
   }
-
-  nav #menu-container.is-active ul {
+  nav input#menu:checked ~ #menu-container ul {
     margin-bottom: 1em;
   }
+  nav input#menu:checked ~ .hamburger-container .hamburger-button:before {
+    transform: translateY(6px) rotate(405deg);
+  }
+  nav input#menu:checked ~ .hamburger-container .hamburger-button {
+    background-color: #222;
+  }
+  nav input#menu:checked ~ .hamburger-container .hamburger-button:after {
+    transform: translateY(-6px) rotate(-405deg);
+  }
 }
-
 @media screen and (max-width: 896px) {
-
   html,
   body {
     font-size: 100%;
   }
-
   header,
   nav,
   main,
@@ -245,17 +265,14 @@ button:not(.hamburger):active {
     padding-right: 4em;
   }
 }
-
 @media screen and (max-width: 512px) {
   #banner {
     padding: 9em 0;
   }
-
   #navbanner {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
   }
-
   header,
   nav,
   main,
@@ -263,17 +280,14 @@ button:not(.hamburger):active {
     padding-left: 2.5em;
     padding-right: 2.5em;
   }
-
   header {
     margin-top: 2em;
     margin-bottom: 2em;
   }
-
   footer {
     margin-top: 3em;
     margin-bottom: 2em;
   }
-
   section {
     margin-top: 1.5em;
     margin-bottom: 1.5em;

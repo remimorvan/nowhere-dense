@@ -22,12 +22,12 @@ $maincolor-darken: color-mix(in srgb, $maincolor, #000);
 
 @font-face {
 	font-family: "Alata";
-	src: url("../fnt/Alata-Regular.ttf");
+	src: url("./fnt/Alata-Regular.ttf");
 }
 
 @font-face {
 	font-family: "Big Shoulders";
-	src: url("../fnt/BigShouldersInlineText-VariableFont_wght.ttf");
+	src: url("./fnt/BigShouldersInlineText-VariableFont_wght.ttf");
 }
 
 html,
@@ -109,7 +109,7 @@ header .where {
 }
 
 #banner {
-	background-image: url("../img/snowscat-H3oXiq7_bII-unsplash.jpg");
+	background-image: url("./img/snowscat-H3oXiq7_bII-unsplash.jpg");
 	position: relative;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -128,7 +128,7 @@ nav {
 	// border-top: solid .15em #111;
 }
 
-nav button.hamburger {
+nav .hamburger {
 	display: none;
 }
 
@@ -179,7 +179,7 @@ footer {
 	margin: 4.5em 0 3em 0;
 }
 
-button:not(.hamburger) {
+button {
 	margin: 1em 1em 0 1em;
 	padding: .8em 1.3em;
 
@@ -201,12 +201,12 @@ button:not(.hamburger) {
 	box-shadow: 0 4px 1px $maincolor-darken;
 }
 
-button:not(.hamburger):hover {
+button:hover {
 	box-shadow: 0 2px 1px $maincolor-darken;
 	transform: translateY(2px);
 }
 
-button:not(.hamburger):active {
+button:active {
 	box-shadow: 0 3px 1px $maincolor-darken inset;
 	transition: box-shadow .15s, transform .15s;
 	transform: translateY(5px);
@@ -229,11 +229,39 @@ button:not(.hamburger):active {
 		margin-bottom: 4em;
 	}
 
-	nav button.hamburger {
+	.hamburger-container {
 		display: block;
-		transform: scale(0.6);
-		padding: 0;
+		height: 20px;
+		width: 1em;
 		margin-left: auto;
+		cursor: pointer;
+	}
+
+	.hamburger-button {
+		margin-top: 8px;
+	}
+
+	.hamburger-button,
+	.hamburger-button::before,
+	.hamburger-button::after {
+		display: block;
+		background-color: #fff;
+		padding: 0;
+		position: absolute;
+		height: 2px;
+		width: 1em;
+		transition: transform 400ms cubic-bezier(0.15, 1, 0.25, 1);
+		border-radius: 2px;
+	}
+
+	.hamburger-button::before {
+		content: '';
+		margin-top: -6px;
+	}
+
+	.hamburger-button::after {
+		content: '';
+		margin-top: 6px;
 	}
 
 	nav #menu-container ul {
@@ -251,13 +279,25 @@ button:not(.hamburger):active {
 		transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
 	}
 
-	nav #menu-container.is-active li {
+	nav input#menu:checked~#menu-container li {
 		height: 1.5em;
 		transition: height 400ms cubic-bezier(0.15, 1, 0.25, 1);
 	}
 
-	nav #menu-container.is-active ul {
+	nav input#menu:checked~#menu-container ul {
 		margin-bottom: 1em;
+	}
+
+	nav input#menu:checked~.hamburger-container .hamburger-button:before {
+		transform: translateY(6px) rotate(405deg);
+	}
+
+	nav input#menu:checked~.hamburger-container .hamburger-button {
+		background-color: $colornavbar;
+	}
+
+	nav input#menu:checked~.hamburger-container .hamburger-button:after {
+		transform: translateY(-6px) rotate(-405deg);
 	}
 }
 

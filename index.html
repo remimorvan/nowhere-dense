@@ -14,7 +14,6 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
 	<link rel="stylesheet" href="design.css">
-	<link rel="stylesheet" href="hamburger.css">
 
 </head>
 
@@ -31,11 +30,15 @@
 		<div id="banner">
 		</div>
 		<nav>
-			<button class="hamburger hamburger--spring" type="button">
+			<!-- <button class="hamburger hamburger--spring" type="button">
 				<span class="hamburger-box">
 					<span class="hamburger-inner"></span>
 				</span>
-			</button>
+			</button> -->
+			<input id="menu" class="hamburger" type="checkbox" />
+			<label class='hamburger-container' for="menu">
+				<div class='hamburger-button'></div>
+			</label>
 
 			<div id="menu-container">
 				<ul>
@@ -107,8 +110,6 @@
 			Picture by <a href="https://unsplash.com/fr/@snowscat">Snowscat</a> from <a
 				href="https://unsplash.com/fr/photos/photographie-de-paysage-de-montagne-pres-du-plan-deau-H3oXiq7_bII">Unsplash</a>.</p>
 	</footer>
-
-	<script src="script/menu.js"></script>
 </body>
 
 </html>
