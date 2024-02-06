@@ -17,14 +17,19 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-family: "Alata", sans-serif;
-  font-size: 105%;
   color: #111;
   box-sizing: border-box;
 }
 
 a {
-  color: #20bf6b;
-  text-decoration: none;
+  color: #0fb9b1;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: 0.2s;
+}
+
+a:hover {
+  text-decoration-color: #0fb9b1;
 }
 
 .center {
@@ -32,22 +37,34 @@ a {
 }
 
 header {
+  overflow: hidden;
+  margin: 0;
+  box-shadow: 0pt 2pt 8pt rgba(51, 51, 51, 0.5333333333);
+}
+
+header #banner {
+  background-image: url("./img/snowscat-H3oXiq7_bII-unsplash.jpg");
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4em 0;
+  width: 100%;
+}
+
+header #banner-content {
   text-align: center;
-  margin: 3em 0;
+  color: #f1f3f6;
+  background-color: rgba(34, 34, 34, 0.7);
+  padding: 1.5em 0;
+  box-shadow: 0pt 2pt 8pt rgba(51, 51, 51, 0.5333333333);
 }
 
 header h1 {
-  font-size: 450%;
-  font-weight: 800;
+  font-size: 350%;
+  font-weight: 700;
   font-family: "Big Shoulders", Helvetica, sans-serif;
   margin: 0;
-}
-
-header h1 .gradient {
-  background-image: linear-gradient(60deg, #0fb9b1, 50%, #f7b731);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 header p {
@@ -55,13 +72,7 @@ header p {
 }
 
 header .description {
-  font-size: 110%;
-  font-weight: 400;
-}
-
-header .wherewhen {
-  font-size: 110%;
-  font-weight: 600;
+  font-size: 108%;
 }
 
 header .when,
@@ -69,29 +80,12 @@ header .where {
   padding: 0px 2px;
 }
 
-#navbanner {
-  border-radius: 0.5em;
-  overflow: hidden;
-  margin-top: 4em;
-  margin-bottom: 4em;
-  box-shadow: 0pt 2pt 8pt rgba(51, 51, 51, 0.5333333333);
-  position: sticky;
-  top: -18em;
+header .when {
+  color: #0fb9b1;
 }
 
-#navbanner.nobanner {
-  top: 0;
-}
-
-#banner {
-  background-image: url("./img/snowscat-H3oXiq7_bII-unsplash.jpg");
-  position: relative;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 9em 0;
-  width: 100%;
-  box-shadow: 8pt 0 8pt #111;
+header .where {
+  color: #f7b731;
 }
 
 nav {
@@ -100,6 +94,10 @@ nav {
   padding-top: 1em;
   padding-bottom: 1em;
   color: #f1f3f6;
+  border-radius: 0 0 0.5em 0.5em;
+  position: sticky;
+  top: 0em;
+  box-shadow: 0pt 2pt 8pt rgba(51, 51, 51, 0.5333333333);
 }
 
 nav .hamburger {
@@ -122,6 +120,13 @@ nav ul li {
 
 nav ul li a {
   color: inherit;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: 0.2s;
+}
+
+nav ul li a:hover {
+  text-decoration-color: #f1f3f6;
 }
 
 h2::before {
@@ -132,7 +137,6 @@ h2 {
   margin-top: 0.5em;
 }
 
-header,
 nav,
 main,
 footer {
@@ -157,42 +161,32 @@ button {
   align-items: center;
   display: inline-flex;
   appearance: none;
-  background-color: #20bf6b;
+  background-color: #0fb9b1;
   border-radius: 0.5em;
   border-width: 0;
   font-size: 120%;
-  color: #fff;
+  color: #f1f3f6;
   font-family: monospace;
   font-weight: 600;
   cursor: pointer;
   transition: box-shadow 0.5s, transform 0.5s;
-  box-shadow: 0 4px 1px color-mix(in srgb, #20bf6b, #000);
+  box-shadow: 0 4px 1px color-mix(in srgb, #0fb9b1, #000);
 }
 
 button:hover {
-  box-shadow: 0 2px 1px color-mix(in srgb, #20bf6b, #000);
+  box-shadow: 0 2px 1px color-mix(in srgb, #0fb9b1, #000);
   transform: translateY(2px);
 }
 
 button:active {
-  box-shadow: 0 3px 1px color-mix(in srgb, #20bf6b, #000) inset;
+  box-shadow: 0 3px 1px color-mix(in srgb, #0fb9b1, #000) inset;
   transition: box-shadow 0.15s, transform 0.15s;
   transform: translateY(5px);
 }
 
 @media screen and (max-width: 1024px) {
-  #navbanner {
+  nav {
     border-radius: 0;
-  }
-  #navbanner.nobanner {
-    position: fixed;
-    top: -4em;
-    left: 0;
-    width: 100%;
-  }
-  header:has(~ #navbanner.nobanner) {
-    margin-top: 7em;
-    margin-bottom: 4em;
   }
   .hamburger-container {
     display: block;
@@ -208,7 +202,7 @@ button:active {
   .hamburger-button::before,
   .hamburger-button::after {
     display: block;
-    background-color: #fff;
+    background-color: #f1f3f6;
     padding: 0;
     position: absolute;
     height: 2px;
@@ -253,12 +247,6 @@ button:active {
   }
 }
 @media screen and (max-width: 896px) {
-  html,
-  body {
-    font-size: 100%;
-  }
-  header,
-  nav,
   main,
   footer {
     padding-left: 4em;
@@ -269,21 +257,10 @@ button:active {
   #banner {
     padding: 7em 0;
   }
-  #navbanner:not(.nobanner) {
-    margin-top: 2.5em;
-    margin-bottom: 2.5em;
-    top: -14em;
-  }
-  header,
-  nav,
   main,
   footer {
     padding-left: 2.5em;
     padding-right: 2.5em;
-  }
-  header {
-    margin-top: 2em;
-    margin-bottom: 2em;
   }
   footer {
     margin-top: 3em;
