@@ -37,7 +37,7 @@ header {
 }
 
 header h1 {
-  font-size: 550%;
+  font-size: 450%;
   font-weight: 800;
   font-family: "Big Shoulders", Helvetica, sans-serif;
   margin: 0;
@@ -76,7 +76,7 @@ header .where {
   margin-bottom: 4em;
   box-shadow: 0pt 2pt 8pt rgba(51, 51, 51, 0.5333333333);
   position: sticky;
-  top: -24em;
+  top: -18em;
 }
 
 #navbanner.nobanner {
@@ -89,7 +89,7 @@ header .where {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 12em 0;
+  padding: 9em 0;
   width: 100%;
   box-shadow: 8pt 0 8pt #111;
 }
@@ -265,13 +265,14 @@ button:active {
     padding-right: 4em;
   }
 }
-@media screen and (max-width: 512px) {
+@media screen and (max-width: 640px) {
   #banner {
-    padding: 9em 0;
+    padding: 7em 0;
   }
-  #navbanner {
+  #navbanner:not(.nobanner) {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
+    top: -14em;
   }
   header,
   nav,
