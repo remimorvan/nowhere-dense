@@ -18,6 +18,7 @@ $secondcolor: $yellow;
 $colorbackgroundheader: #222;
 $colornavbar: #222;
 $maincolor-darken: color-mix(in srgb, $maincolor, #000);
+$secondcolor-darken: color-mix(in srgb, $secondcolor, #000);
 
 
 @font-face {
@@ -65,6 +66,10 @@ header {
 	box-shadow: 0pt 2pt 8pt #3338;
 }
 
+header:not(:has(+ nav)) {
+	border-radius: 0 0 .5em .5em;
+}
+
 header #banner {
 	background-image: url("./img/snowscat-H3oXiq7_bII-unsplash.jpg");
 	position: relative;
@@ -78,7 +83,7 @@ header #banner {
 header #banner-content {
 	text-align: center;
 	color: $verylightgrey;
-	background-color: rgba($colorbackgroundheader, 0.7);
+	background-color: rgba($colorbackgroundheader, 0.8);
 	padding: 1.5em 0;
 	box-shadow: 0pt 2pt 8pt #3338;
 }
@@ -203,6 +208,10 @@ button {
 	box-shadow: 0 4px 1px $maincolor-darken;
 }
 
+a:has(button) {
+	text-decoration: none;
+}
+
 button:hover {
 	box-shadow: 0 2px 1px $maincolor-darken;
 	transform: translateY(2px);
@@ -212,6 +221,19 @@ button:active {
 	box-shadow: 0 3px 1px $maincolor-darken inset;
 	transition: box-shadow .15s, transform .15s;
 	transform: translateY(5px);
+}
+
+button.secondary {
+	background-color: $secondcolor;
+	box-shadow: 0 4px 1px $secondcolor-darken;
+}
+
+button.secondary:hover {
+	box-shadow: 0 2px 1px $secondcolor-darken !important;
+}
+
+button.secondary:active {
+	box-shadow: 0 3px 1px $secondcolor-darken inset !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -293,6 +315,7 @@ button:active {
 
 @media screen and (max-width: 896px) {
 
+	nav,
 	main,
 	footer {
 		padding-left: 4em;
@@ -305,6 +328,7 @@ button:active {
 		padding: 7em 0;
 	}
 
+	nav,
 	main,
 	footer {
 		padding-left: 2.5em;
