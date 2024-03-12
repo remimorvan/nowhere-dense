@@ -37,6 +37,15 @@ a:hover {
   text-align: center;
 }
 
+.important {
+  color: #f7b731;
+}
+
+.important a {
+  color: #f7b731;
+  text-decoration-color: #f7b731;
+}
+
 header {
   overflow: hidden;
   margin: 0;

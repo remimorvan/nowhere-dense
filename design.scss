@@ -63,6 +63,15 @@ a:hover {
 	text-align: center;
 }
 
+.important {
+	color: $secondcolor;
+}
+
+.important a {
+	color: $secondcolor;
+	text-decoration-color: $secondcolor;
+}
+
 header {
 	overflow: hidden;
 	margin: 0;
