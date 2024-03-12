@@ -31,12 +31,15 @@ $secondcolor-darken: color-mix(in srgb, $secondcolor, #000);
 	src: url("./fnt/BigShouldersInlineText-VariableFont_wght.ttf");
 }
 
-html,
 body {
-	margin: 0;
-	display: block;
+	display: flex;
+	flex-direction: column;
+
 	width: 100%;
 	max-width: 1024px;
+	min-height: 100vh;
+
+	margin: 0;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -174,6 +177,10 @@ footer {
 	padding-right: 6em;
 }
 
+main {
+	flex: 1;
+}
+
 section {
 	margin: 3em 0;
 }
@@ -183,7 +190,7 @@ footer {
 
 	font-size: 85%;
 	text-align: center;
-	margin: 4.5em 0 3em 0;
+	margin: 0 0 3em 0;
 }
 
 button {
@@ -336,7 +343,6 @@ button.secondary:active {
 	}
 
 	footer {
-		margin-top: 3em;
 		margin-bottom: 2em;
 	}
 
