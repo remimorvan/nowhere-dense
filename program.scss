@@ -1,0 +1,83 @@
+@import "variables";
+
+details.program summary {
+	margin: 1em 0;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+details>summary {
+	list-style-type: '‹ ';
+}
+
+details[open]>summary {
+	list-style-type: '› ';
+}
+
+table.program {
+	// table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table.program tr td {
+	padding: 8px 16px;
+}
+
+table.program td:first-child {
+	min-width: 110px;
+	text-align: right;
+	vertical-align: top;
+}
+
+table.program tr:first-child td:first-child {
+	border-radius: .5em 0 0 0;
+}
+
+table.program tr:first-child td:last-child {
+	border-radius: 0 .5em 0 0;
+}
+
+table.program tr:last-child td:first-child {
+	border-radius: 0 0 0 .5em;
+}
+
+table.program tr:last-child td:last-child {
+	border-radius: 0 0 .5em 0;
+}
+
+table.program tr:nth-child(even) td {
+	background: transparentize($verylightgrey, .1);
+}
+
+table.program tr:nth-child(odd) td {
+	background: transparentize($verylightgrey, .7);
+}
+
+table.program tr.empty td {
+	background: none;
+	min-height: 40px;
+}
+
+table.program tr.empty td::before {
+	content: '';
+	display: block;
+	min-height: 1em;
+}
+
+table.program .inv {
+	font-variant: small-caps;
+	color: $secondcolor;
+	margin-left: 16px;
+	font-size: 95%;
+}
+
+table.program .inv::before {
+	content: '[';
+	font-size: 90%;
+}
+
+table.program .inv::after {
+	content: ']';
+	font-size: 90%;
+}

@@ -1,24 +1,4 @@
-/* Color palette: https://flatuicolors.com/palette/de */
-$red: #eb3b5a;
-$orange: #fa8231;
-$yellow: #f7b731;
-$green: #20bf6b;
-$turquoise: #0fb9b1;
-$lightblue: #2d98da;
-$blue: #3867d6;
-$purple: #8854d0;
-$verylightgrey: #f1f3f6;
-$lightgrey: #d1d8e0;
-$grey: #a5b1c2;
-$darkgrey: #4b6584;
-$verydarkgrey: #2a4858;
-
-$maincolor: $turquoise;
-$secondcolor: $yellow;
-$colorbackgroundheader: #222;
-$colornavbar: #222;
-$maincolor-darken: color-mix(in srgb, $maincolor, #000);
-$secondcolor-darken: color-mix(in srgb, $secondcolor, #000);
+@import "variables";
 
 
 @font-face {
