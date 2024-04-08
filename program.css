@@ -23,6 +23,11 @@ table.program tr td {
   padding: 8px 16px;
 }
 
+table.program tr.empty {
+  border-top: 1px dashed #4b6584;
+  border-bottom: 1px dashed #4b6584;
+}
+
 table.program td:first-child {
   min-width: 110px;
   text-align: right;
